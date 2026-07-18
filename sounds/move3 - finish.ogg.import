@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnijjx88en2ns"
+path="res://.godot/imported/move3 - finish.ogg-bf23ba5fbc36920fcbe0bc6b38687c20.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/move3 - finish.ogg"
+dest_files=["res://.godot/imported/move3 - finish.ogg-bf23ba5fbc36920fcbe0bc6b38687c20.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

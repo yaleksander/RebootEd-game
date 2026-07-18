@@ -7,7 +7,6 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1gsm"]
 texture = ExtResource("1_cmunl")
 0:0/0 = 0
-0:0/0/terrain = 0
 0:0/0/custom_data_0 = true
 1:0/0 = 0
 2:0/0 = 0
@@ -456,3 +455,7 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_j4aoe")
 
 [node name="PlayerWalkSound" type="AudioStreamPlayer" parent="Player" unique_id=1321282931]
+
+[node name="LoopPlayerA" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=768570313]
+
+[node name="LoopPlayerB" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=390415214]
