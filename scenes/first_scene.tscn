@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bynvd7ll8yp8g" path="res://tilesets/sewers.png" id="1_cmunl"]
 [ext_resource type="Script" uid="uid://d0tlc6nxl7wro" path="res://scenes/movement.gd" id="1_j4aoe"]
 [ext_resource type="Texture2D" uid="uid://cv47oi5a24ee4" path="res://sprites/lucas.png" id="1_mgu5x"]
+[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="4_d3xhb"]
+[ext_resource type="Script" uid="uid://b73w1pbibdaps" path="res://scenes/move_box.gd" id="4_h1gsm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1gsm"]
 texture = ExtResource("1_cmunl")
@@ -428,7 +430,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4aoe"]
-size = Vector2(16, 20)
+size = Vector2(14, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f81f"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_budn8"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx1a"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hlq"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v04fd"]
+size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D" unique_id=726586639]
 
@@ -451,11 +468,42 @@ sprite_frames = SubResource("SpriteFrames_v0hlq")
 animation = &"walk down"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1016258970]
-position = Vector2(0, 6)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_j4aoe")
+
+[node name="Interact" type="Area2D" parent="Player/PlayerCollision" unique_id=109148049]
+position = Vector2(0, -6)
+
+[node name="Down" type="CollisionShape2D" parent="Player/PlayerCollision/Interact" unique_id=844007097]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_8f81f")
+
+[node name="Left" type="CollisionShape2D" parent="Player/PlayerCollision/Interact" unique_id=155709437]
+position = Vector2(-9, 8)
+shape = SubResource("RectangleShape2D_budn8")
+
+[node name="Right" type="CollisionShape2D" parent="Player/PlayerCollision/Interact" unique_id=1714637408]
+position = Vector2(9, 8)
+shape = SubResource("RectangleShape2D_rtx1a")
+
+[node name="Up" type="CollisionShape2D" parent="Player/PlayerCollision/Interact" unique_id=2126532968]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_v0hlq")
 
 [node name="PlayerWalkSound" type="AudioStreamPlayer" parent="Player" unique_id=1321282931]
 
 [node name="LoopPlayerA" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=768570313]
 
 [node name="LoopPlayerB" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=390415214]
+
+[node name="Box" type="CharacterBody2D" parent="." unique_id=1820329819]
+position = Vector2(24, 8)
+script = ExtResource("4_h1gsm")
+
+[node name="BoxSprite" type="Sprite2D" parent="Box" unique_id=887767436]
+position = Vector2(3.8146973e-06, 4.7683716e-07)
+scale = Vector2(0.12499999, 0.12499999)
+texture = ExtResource("4_d3xhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1750571024]
+shape = SubResource("RectangleShape2D_v04fd")
