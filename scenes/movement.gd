@@ -8,16 +8,19 @@ var player_direction = "down"
 var _using_player_a = true
 var _loop_active = false
 
-@export var speed = 200
+@export var speed = 100
+@export var push_speed = 25
 @export var _map : TileMapLayer
 @export var crossfade_time = 0.05  # segundos de sobreposição
+
+var is_pushing = false
 
 @onready var _animated_sprite = $PlayerAnimatedSprite
 @onready var _audio_player = $PlayerWalkSound
 @onready var _loop_player_a = $PlayerWalkSound/LoopPlayerA
 @onready var _loop_player_b = $PlayerWalkSound/LoopPlayerB
 @onready var _loop_timer = Timer.new()
-@onready var _interact_area = $PlayerCollision/Interact
+@onready var _interact_area = $Interact
 
 func _ready():
 	_audio_player.finished.connect(func(): _start_loop())
@@ -27,7 +30,15 @@ func _ready():
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+	
+	# Detect if pushing a box and update velocity
+	check_push(input_direction)
+	
+	var current_speed = speed
+	if is_pushing:
+		current_speed = push_speed
+		
+	velocity = input_direction * current_speed
 	return input_direction
 
 func animate(v):
@@ -90,12 +101,34 @@ func walk_sound():
 		_audio_player.play()
 		was_moving = false
 
-func do_action():
-	if (Input.is_action_just_pressed("interact")):
-		print("click!")
-		for node in _interact_area.get_overlapping_bodies():
-			if (node.has_method("player_action")):
-				node.player_action(self, player_direction)
+func get_cardinal_direction(v: Vector2) -> String:
+	if (abs(v.x) > abs(v.y)):
+		if (v.x < 0):
+			return "left"
+		else:
+			return "right"
+	else:
+		if (v.y < 0):
+			return "up"
+		else:
+			return "down"
+
+func check_push(input_direction: Vector2):
+	is_pushing = false
+	if input_direction == Vector2.ZERO:
+		return
+
+	var card_dir = get_cardinal_direction(input_direction)
+	
+	for body in _interact_area.get_overlapping_bodies():
+		if body.has_method("player_action"):
+			var to_box = body.global_position - global_position
+			var box_dir = get_cardinal_direction(to_box)
+			
+			if box_dir == card_dir:
+				is_pushing = true
+				if body.velocity == Vector2.ZERO:
+					body.player_action(self, card_dir)
 
 func _physics_process(_delta):
 	var v = get_input()
@@ -103,4 +136,3 @@ func _physics_process(_delta):
 	move_and_slide()
 	animate(v)
 	walk_sound()
-	do_action()
