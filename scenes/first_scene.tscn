@@ -433,16 +433,16 @@ animations = [{
 size = Vector2(14, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8f81f"]
-size = Vector2(14, 4)
+size = Vector2(22, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budn8"]
-size = Vector2(4, 12)
+size = Vector2(4, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx1a"]
-size = Vector2(4, 12)
+size = Vector2(4, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hlq"]
-size = Vector2(14, 4)
+size = Vector2(18, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v04fd"]
 size = Vector2(16, 16)
@@ -487,7 +487,7 @@ position = Vector2(9, 5)
 shape = SubResource("RectangleShape2D_rtx1a")
 
 [node name="Up" type="CollisionShape2D" parent="Player/Interact" unique_id=2126532968]
-position = Vector2(0, -3)
+position = Vector2(2, -3)
 shape = SubResource("RectangleShape2D_v0hlq")
 
 [node name="PlayerWalkSound" type="AudioStreamPlayer" parent="Player" unique_id=1321282931]
