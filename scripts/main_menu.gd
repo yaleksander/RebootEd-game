@@ -1,13 +1,20 @@
 extends Control
 
+const menu_music = preload("res://sounds/Menu - ShuttedDown - Loop.ogg")
+
 @onready var options_menu = $OptionsMenu
 @onready var button_container = $VBoxContainer
 @onready var game_title_sprite = $RebootedLogo 
 @onready var transition_rect = $TransitionRect
+@onready var music_player = $MenuMusic
 
 const GAME_SCENE_PATH = "res://scenes/first_scene.tscn"
 
 func _ready():
+	music_player.stream = menu_music
+	music_player.volume_db = -10
+	music_player.play()
+	
 	if options_menu:
 		options_menu.visible = false
 	
