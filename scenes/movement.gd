@@ -10,7 +10,7 @@ var _using_player_a = true
 var _loop_active = false
 var is_pushing = false
 
-
+@export_range(0, 1, 0.05) var volume: float
 @export var speed = 100
 @export var push_speed = 25
 @export var _map : TileMapLayer
@@ -28,6 +28,9 @@ var is_pushing = false
 @onready var _interact_up = $Interact/up
 
 func _ready():
+	_audio_player.volume_linear = volume
+	_loop_player_a.volume_linear = volume
+	_loop_player_b.volume_linear = volume
 	_audio_player.finished.connect(func(): _start_loop())
 	_loop_timer.one_shot = true
 	_loop_timer.timeout.connect(_on_loop_timer_timeout)
