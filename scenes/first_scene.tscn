@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b73w1pbibdaps" path="res://scenes/move_box.gd" id="4_h1gsm"]
 [ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scenes/mirror.gd" id="4_hsfv8"]
 [ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="5_opxuv"]
+[ext_resource type="Texture2D" uid="uid://bpt2xxv0ak2m" path="res://sprites/Ed_Back_SpriteSheet.png" id="8_opxuv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1gsm"]
 texture = ExtResource("1_cmunl")
@@ -329,6 +330,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be35d"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsfv8"]
+size = Vector2(16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4aoe"]
 atlas = ExtResource("1_mgu5x")
 region = Rect2(0, 0, 32, 32)
@@ -378,20 +382,44 @@ atlas = ExtResource("1_mgu5x")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2feq4"]
-atlas = ExtResource("1_mgu5x")
-region = Rect2(0, 64, 32, 32)
+atlas = ExtResource("8_opxuv")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dawxc"]
-atlas = ExtResource("1_mgu5x")
-region = Rect2(32, 64, 32, 32)
+atlas = ExtResource("8_opxuv")
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi3mw"]
-atlas = ExtResource("1_mgu5x")
-region = Rect2(64, 64, 32, 32)
+atlas = ExtResource("8_opxuv")
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rojuw"]
-atlas = ExtResource("1_mgu5x")
-region = Rect2(96, 64, 32, 32)
+atlas = ExtResource("8_opxuv")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkp6l"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ma1l"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfeft"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vkic"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6qxr"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sox51"]
+atlas = ExtResource("8_opxuv")
+region = Rect2(128, 512, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v0hlq"]
 animations = [{
@@ -458,10 +486,28 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rojuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkp6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ma1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfeft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vkic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6qxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sox51")
 }],
 "loop": 1,
 "name": &"walk up",
-"speed": 5.0
+"speed": 60.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4aoe"]
@@ -503,8 +549,6 @@ texture = ExtResource("4_d3xhb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1750571024]
 shape = SubResource("RectangleShape2D_v04fd")
 
-[node name="BoxSlide" type="AudioStreamPlayer" parent="Box" unique_id=1113088180]
-
 [node name="Mirror" type="CharacterBody2D" parent="." unique_id=115392072]
 script = ExtResource("4_hsfv8")
 
@@ -518,13 +562,19 @@ animation = &"secundaria"
 position = Vector2(40, 8)
 shape = SubResource("RectangleShape2D_be35d")
 
+[node name="MirrorArea2D" type="Area2D" parent="Mirror" unique_id=2053531563]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/MirrorArea2D" unique_id=842141517]
+position = Vector2(40, 8)
+shape = SubResource("RectangleShape2D_hsfv8")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1407962702 node_paths=PackedStringArray("_map")]
 script = ExtResource("1_j4aoe")
 _map = NodePath("../TileMapGround")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="Player" unique_id=996276602]
 sprite_frames = SubResource("SpriteFrames_v0hlq")
-animation = &"walk down"
+animation = &"walk up"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1016258970]
 position = Vector2(0, 10)
