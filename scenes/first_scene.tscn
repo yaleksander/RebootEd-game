@@ -503,6 +503,8 @@ texture = ExtResource("4_d3xhb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1750571024]
 shape = SubResource("RectangleShape2D_v04fd")
 
+[node name="BoxSlide" type="AudioStreamPlayer" parent="Box" unique_id=1113088180]
+
 [node name="Mirror" type="CharacterBody2D" parent="." unique_id=115392072]
 script = ExtResource("4_hsfv8")
 
