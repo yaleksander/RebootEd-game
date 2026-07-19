@@ -10,11 +10,10 @@ var _using_player_a = true
 var _loop_active = false
 var is_pushing = false
 
-
 @export var speed = 100
 @export var push_speed = 25
 @export var _map : TileMapLayer
-@export var crossfade_time = 0.05  # segundos de sobreposição
+@export var crossfade_time = 0.05
 
 @onready var _animated_sprite = $PlayerAnimatedSprite
 @onready var _audio_player = $PlayerWalkSound
@@ -26,9 +25,9 @@ var is_pushing = false
 @onready var _interact_left = $Interact/left
 @onready var _interact_right = $Interact/right
 @onready var _interact_up = $Interact/up
+@onready var flashlight = $LanternaPivot/PointLight2D
 
 func _ready():
-	# set dos volumes
 	_audio_player.volume_db = -4
 	_loop_player_a.volume_db = -4
 	_loop_player_b.volume_db = -4
@@ -150,3 +149,17 @@ func _physics_process(_delta):
 	move_and_slide()
 	animate(v)
 	walk_sound()
+	
+	if flashlight:
+		# Força o nó a ficar estático no centro do Player
+		flashlight.position = Vector2.ZERO
+		
+		# Calcula o ângulo exato para o mouse
+		var angle = global_position.angle_to_point(get_global_mouse_position())
+		flashlight.rotation = angle
+		
+		# Pega o tamanho da textura para calcular a metade dela automaticamente
+		if flashlight.texture:
+			var texture_width = flashlight.texture.get_size().x
+			# Multiplica pela metade do tamanho real da imagem para jogar o pivô na ponta esquerda
+			flashlight.offset = Vector2(texture_width / 2.0, 0)

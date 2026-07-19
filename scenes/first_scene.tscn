@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b73w1pbibdaps" path="res://scenes/move_box.gd" id="4_h1gsm"]
 [ext_resource type="PackedScene" uid="uid://ch5wdx0ulsnv4" path="res://scenes/player.tscn" id="6_66tf5"]
 [ext_resource type="PackedScene" uid="uid://c371naxtyu0gr" path="res://scenes/laser_emitter.tscn" id="7_hsfv8"]
+[ext_resource type="PackedScene" uid="uid://bqnjn4fjy48fc" path="res://scenes/ambiente_escuro.tscn" id="7_opxuv"]
 [ext_resource type="PackedScene" uid="uid://ch53882q585t7" path="res://scenes/mirror.tscn" id="8_opxuv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1gsm"]
@@ -347,3 +348,5 @@ position = Vector2(132, -51)
 
 [node name="mirror5" parent="." unique_id=1105484292 instance=ExtResource("8_opxuv")]
 position = Vector2(125, 49)
+
+[node name="AmbienteEscuro" parent="." unique_id=1963026282 instance=ExtResource("7_opxuv")]
