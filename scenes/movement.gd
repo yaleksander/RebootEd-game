@@ -151,15 +151,11 @@ func _physics_process(_delta):
 	walk_sound()
 	
 	if flashlight:
-		# Força o nó a ficar estático no centro do Player
 		flashlight.position = Vector2.ZERO
 		
-		# Calcula o ângulo exato para o mouse
 		var angle = global_position.angle_to_point(get_global_mouse_position())
 		flashlight.rotation = angle
 		
-		# Pega o tamanho da textura para calcular a metade dela automaticamente
 		if flashlight.texture:
 			var texture_width = flashlight.texture.get_size().x
-			# Multiplica pela metade do tamanho real da imagem para jogar o pivô na ponta esquerda
 			flashlight.offset = Vector2(texture_width / 2.0, 0)
