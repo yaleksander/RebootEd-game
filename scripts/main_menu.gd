@@ -3,6 +3,7 @@ extends Control
 @onready var options_menu = $OptionsMenu
 @onready var button_container = $VBoxContainer
 @onready var game_title_sprite = $RebootedLogo 
+@onready var transition_rect = $TransitionRect
 
 const GAME_SCENE_PATH = "res://scenes/first_scene.tscn"
 
@@ -14,9 +15,22 @@ func _ready():
 		game_title_sprite.modulate.a = 0.0
 		var tween = create_tween()
 		tween.tween_property(game_title_sprite, "modulate:a", 1.0, 4.0)
+	
+	if transition_rect:
+		transition_rect.visible = true
+		var material = transition_rect.material as ShaderMaterial
+		if material:
+			material.set_shader_parameter("progress", 0.0)
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file(GAME_SCENE_PATH)
+	if transition_rect:
+		var material = transition_rect.material as ShaderMaterial
+		if material:
+			var tween = create_tween()
+			tween.tween_property(material, "shader_parameter/progress", 1.0, 1.5)
+			tween.tween_callback(func(): get_tree().change_scene_to_file(GAME_SCENE_PATH))
+	else:
+		get_tree().change_scene_to_file(GAME_SCENE_PATH)
 
 func _on_options_button_pressed():
 	options_menu.visible = true

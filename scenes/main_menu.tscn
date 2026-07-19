@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://2348saatlp88" path="res://sprites/Botão voltar.png" id="3_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="4_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://dj8scvqfd0qne" path="res://sprites/rebooted logo.png" id="4_wu84c"]
+[ext_resource type="Shader" uid="uid://dx6hb1hckeoqs" path="res://scripts/main_menu.gdshader" id="7_oa1go"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_up3c4"]
+shader = ExtResource("7_oa1go")
+shader_parameter/progress = 0.0
 
 [node name="MainMenu" type="Control" unique_id=1787450729]
 layout_mode = 3
@@ -94,6 +99,17 @@ texture = ExtResource("2_ekxnf")
 position = Vector2(314, 127)
 scale = Vector2(0.33758533, 0.26415047)
 texture = ExtResource("4_wu84c")
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=162359412]
+material = SubResource("ShaderMaterial_up3c4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
