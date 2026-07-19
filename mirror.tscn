@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://clptmwbbvqqxi"]
+
+[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scenes/mirror.gd" id="1_nk6sm"]
+[ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="2_dx1wu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1plfn"]
+atlas = ExtResource("2_dx1wu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moemk"]
+atlas = ExtResource("2_dx1wu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_budn8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1plfn")
+}],
+"loop": 1,
+"name": &"principal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moemk")
+}],
+"loop": 1,
+"name": &"secundaria",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be35d"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsfv8"]
+size = Vector2(16, 16)
+
+[node name="Mirror" type="CharacterBody2D" unique_id=1720675368]
+script = ExtResource("1_nk6sm")
+
+[node name="MirrorSprite" type="AnimatedSprite2D" parent="." unique_id=1932995776]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_budn8")
+animation = &"secundaria"
+
+[node name="MirrorCollision" type="CollisionShape2D" parent="." unique_id=1258921461]
+shape = SubResource("RectangleShape2D_be35d")
+
+[node name="MirrorArea2D" type="Area2D" parent="." unique_id=2035228508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorArea2D" unique_id=404072350]
+shape = SubResource("RectangleShape2D_hsfv8")
