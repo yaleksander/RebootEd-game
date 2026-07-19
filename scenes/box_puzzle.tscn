@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://yfyiyreext7l"]
 
-[ext_resource type="PackedScene" uid="uid://bytkub47hr0ps" path="res://player.tscn" id="1_uvk3k"]
+[ext_resource type="PackedScene" uid="uid://bytkub47hr0ps" path="res://scenes/player.tscn" id="1_uvk3k"]
 [ext_resource type="Texture2D" uid="uid://bynvd7ll8yp8g" path="res://tilesets/sewers.png" id="1_wueah"]
-[ext_resource type="PackedScene" uid="uid://cow8bv4h27hnt" path="res://box.tscn" id="2_wueah"]
-[ext_resource type="PackedScene" uid="uid://clptmwbbvqqxi" path="res://mirror.tscn" id="3_v1dyl"]
+[ext_resource type="PackedScene" uid="uid://cow8bv4h27hnt" path="res://scenes/box.tscn" id="2_wueah"]
+[ext_resource type="PackedScene" uid="uid://clptmwbbvqqxi" path="res://scenes/mirror.tscn" id="3_v1dyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1dyl"]
 texture = ExtResource("1_wueah")
@@ -168,12 +168,12 @@ tile_set = SubResource("TileSet_d5ffd")
 [node name="Box" parent="." unique_id=1259907060 instance=ExtResource("2_wueah")]
 position = Vector2(-24, 8)
 
+[node name="Box2" parent="." unique_id=1987191558 instance=ExtResource("2_wueah")]
+position = Vector2(-24, 24)
+
 [node name="Mirror" parent="." unique_id=1720675368 instance=ExtResource("3_v1dyl")]
 position = Vector2(8, 8)
 
 [node name="Player" parent="." unique_id=69411858 node_paths=PackedStringArray("_map") instance=ExtResource("1_uvk3k")]
 position = Vector2(-8, 0)
 _map = NodePath("../TileMapGround")
-
-[node name="Box2" parent="." unique_id=1987191558 instance=ExtResource("2_wueah")]
-position = Vector2(-24, 24)
