@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://sln0wxbnsdnj"
+path="res://.godot/imported/Ambience - It looks like life - Loop.ogg-0659af45a97b11f5d0cfc6c91ac3a30c.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Ambience - It looks like life - Loop.ogg"
+dest_files=["res://.godot/imported/Ambience - It looks like life - Loop.ogg-0659af45a97b11f5d0cfc6c91ac3a30c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

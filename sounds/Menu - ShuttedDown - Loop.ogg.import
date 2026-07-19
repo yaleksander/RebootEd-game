@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpna06gf2bhq5"
+path="res://.godot/imported/Menu - ShuttedDown - Loop.ogg-a848e6832f1719ddb9b5f1f72f4ad25f.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Menu - ShuttedDown - Loop.ogg"
+dest_files=["res://.godot/imported/Menu - ShuttedDown - Loop.ogg-a848e6832f1719ddb9b5f1f72f4ad25f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
