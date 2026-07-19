@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://clptmwbbvqqxi"]
 
-[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scenes/mirror.gd" id="1_nk6sm"]
-[ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="2_dx1wu"]
+[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scripts/mirror.gd" id="1_652kc"]
+[ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="2_nha6m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1plfn"]
-atlas = ExtResource("2_dx1wu")
+atlas = ExtResource("2_nha6m")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_moemk"]
-atlas = ExtResource("2_dx1wu")
+atlas = ExtResource("2_nha6m")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_budn8"]
@@ -37,7 +37,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="Mirror" type="CharacterBody2D" unique_id=1720675368]
-script = ExtResource("1_nk6sm")
+script = ExtResource("1_652kc")
 
 [node name="MirrorSprite" type="AnimatedSprite2D" parent="." unique_id=1932995776]
 scale = Vector2(0.5, 0.5)

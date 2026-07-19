@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bytkub47hr0ps"]
 
-[ext_resource type="Script" uid="uid://d0tlc6nxl7wro" path="res://scenes/movement.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://d0tlc6nxl7wro" path="res://scripts/movement.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cv47oi5a24ee4" path="res://sprites/lucas.png" id="2_hqtel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4aoe"]
@@ -142,22 +142,21 @@ animations = [{
 size = Vector2(14, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8f81f"]
-size = Vector2(14, 4)
+size = Vector2(16, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budn8"]
-size = Vector2(4, 12)
+size = Vector2(4, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx1a"]
-size = Vector2(4, 12)
+size = Vector2(4, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hlq"]
-size = Vector2(14, 4)
+size = Vector2(16, 4)
 
-[node name="Player" type="CharacterBody2D" unique_id=69411858 node_paths=PackedStringArray("_map")]
+[node name="Player" type="CharacterBody2D" unique_id=69411858]
 position = Vector2(0, -10)
 script = ExtResource("1_i3pqv")
 volume = 0.1
-_map = NodePath("")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=961571187]
 sprite_frames = SubResource("SpriteFrames_v0hlq")
