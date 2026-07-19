@@ -570,6 +570,7 @@ shape = SubResource("RectangleShape2D_hsfv8")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1407962702 node_paths=PackedStringArray("_map")]
 script = ExtResource("1_j4aoe")
+volume = 0.1
 _map = NodePath("../TileMapGround")
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="Player" unique_id=996276602]
