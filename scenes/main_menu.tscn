@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dfmp7abniu0d4"]
+
+[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="4_rtw2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_up3c4"]
+
+[node name="MainMenu" type="Control" unique_id=1787450729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1269894035]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 229.0
+offset_right = 147.0
+offset_bottom = 330.0
+scale = Vector2(5.444248, 8.564817)
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=706511851]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1420976905]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1563853476]
+layout_mode = 2
+
+[node name="BotõesMenu" type="Sprite2D" parent="VBoxContainer" unique_id=851069296]
+position = Vector2(140.14821, 5.2330303)
+scale = Vector2(0.17599243, 0.058661554)
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=1941646324]
+anchors_preset = 0
+offset_left = 99.000015
+offset_top = 258.0
+offset_right = 169.00002
+offset_bottom = 258.0
+scale = Vector2(2.0073538, 1.0850675)
+
+[node name="Icon" type="Sprite2D" parent="OptionsMenu" unique_id=2070315555]
+modulate = Color(0, 0, 0, 0.54901963)
+position = Vector2(86.681274, 60.825706)
+scale = Vector2(1.621939, 1.3746463)
+texture = ExtResource("4_rtw2f")
+
+[node name="BackButton" type="Button" parent="OptionsMenu" unique_id=448900736]
+layout_mode = 0
+offset_left = -36.00001
+offset_top = 210.99998
+offset_right = 8.999989
+offset_bottom = 241.99998
+scale = Vector2(4.4820623, 3.7779214)
+
+[node name="BotãoVoltar" type="Sprite2D" parent="OptionsMenu" unique_id=373406721]
+position = Vector2(340.74707, 291.2261)
+scale = Vector2(0.46466902, 0.73000276)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu" unique_id=1541476632]
+layout_mode = 0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/VBoxContainer" unique_id=1395450363]
+layout_mode = 2
+
+[node name="FullscreenButton" type="Button" parent="OptionsMenu/VBoxContainer/HBoxContainer" unique_id=318823585]
+layout_mode = 2
+toggle_mode = true
+text = "Fullscreen"
+
+[node name="VolumeLabel" type="Label" parent="OptionsMenu/VBoxContainer" unique_id=958393141]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsMenu/VBoxContainer" unique_id=2141667229]
+layout_mode = 2
+
+[node name="RebootedCapa" type="Sprite2D" parent="." unique_id=297641505]
+z_index = -1
+position = Vector2(575, 327.00003)
+scale = Vector2(0.6017368, 0.6098092)
+
+[node name="RebootedLogo" type="Sprite2D" parent="." unique_id=1151148756]
+position = Vector2(314, 127)
+scale = Vector2(0.33758533, 0.26415047)
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=162359412]
+material = SubResource("ShaderMaterial_up3c4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="OptionsMenu/VBoxContainer/HBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="OptionsMenu/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

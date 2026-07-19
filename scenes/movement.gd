@@ -59,6 +59,9 @@ func animate(v):
 		_animated_sprite.stop()
 
 func get_map_data():
+	if not _map:
+		return
+		
 	if (_map.get_cell_tile_data(_map.local_to_map(position)).get_custom_data("dirt")):
 		velocity /= 2.0
 
@@ -142,7 +145,7 @@ func check_action():
 			body.player_interact()
 
 func _physics_process(_delta):
-	var v = await get_input()
+	var v = get_input()
 	get_map_data()
 	move_and_slide()
 	animate(v)
