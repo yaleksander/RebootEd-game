@@ -1,80 +1,19 @@
-<<<<<<< HEAD
 [gd_scene format=3 uid="uid://clptmwbbvqqxi"]
 
-[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scripts/mirror.gd" id="1_652kc"]
-[ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="2_nha6m"]
+[ext_resource type="Script" uid="uid://drgnoogl7ewp3" path="res://scripts/mirror.gd" id="1_652kc"]
+[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="2_652kc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1plfn"]
-atlas = ExtResource("2_nha6m")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0uh3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_moemk"]
-atlas = ExtResource("2_nha6m")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_budn8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1plfn")
-}],
-"loop": 1,
-"name": &"principal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_moemk")
-}],
-"loop": 1,
-"name": &"secundaria",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_be35d"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsfv8"]
-size = Vector2(16, 16)
-
-[node name="Mirror" type="CharacterBody2D" unique_id=1720675368]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=100596187]
 script = ExtResource("1_652kc")
 
-[node name="MirrorSprite" type="AnimatedSprite2D" parent="." unique_id=1932995776]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_budn8")
-animation = &"secundaria"
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=346613833]
+texture = ExtResource("2_652kc")
 
-[node name="MirrorCollision" type="CollisionShape2D" parent="." unique_id=1258921461]
-shape = SubResource("RectangleShape2D_be35d")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1351644787]
+shape = SubResource("RectangleShape2D_b0uh3")
 
-[node name="MirrorArea2D" type="Area2D" parent="." unique_id=2035228508]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=859194708]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorArea2D" unique_id=404072350]
-shape = SubResource("RectangleShape2D_hsfv8")
-=======
-[gd_scene format=3 uid="uid://ch53882q585t7"]
-
-[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="1_5o7h0"]
-[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scenes/mirror.gd" id="1_652kc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_up3c4"]
-size = Vector2(146, 140)
-
-[node name="mirror" type="StaticBody2D" unique_id=2067683794]
-scale = Vector2(0.22565062, 0.23990774)
-script = ExtResource("1_652kc")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499225062]
-texture = ExtResource("1_5o7h0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=68821847]
-position = Vector2(-4, 4)
-shape = SubResource("RectangleShape2D_up3c4")
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1897184073]
-scale = Vector2(0.7917444, 0.41836736)
-target_position = Vector2(2000, 0)
-
-[node name="Line2D" type="Line2D" parent="." unique_id=2073721272]
->>>>>>> 3e8534191967c78dc31519c8c47cfd26f282361b
+[node name="Line2D" type="Line2D" parent="." unique_id=604791700]

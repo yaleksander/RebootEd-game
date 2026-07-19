@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dxami6pcgn1pi" path="res://scripts/button.gd" id="1_rhj8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0uh3"]
-size = Vector2(16, 16)
+size = Vector2(12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhj8v"]
 atlas = ExtResource("1_mi6dp")
@@ -41,8 +41,8 @@ shape = SubResource("RectangleShape2D_b0uh3")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=45748467]
-position = Vector2(-5.364418e-07, -5.364418e-07)
-scale = Vector2(0.33333328, 0.33333328)
+position = Vector2(4.172325e-07, 4.172325e-07)
+scale = Vector2(0.25000003, 0.25000003)
 sprite_frames = SubResource("SpriteFrames_vpug7")
 animation = &"off"
 
