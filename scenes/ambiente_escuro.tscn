@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bqnjn4fjy48fc"]
+
+[ext_resource type="Script" uid="uid://b6t8idsh7f282" path="res://ambiente_escuro.gd" id="1_jc7hy"]
+
+[node name="AmbienteEscuro" type="CanvasModulate" unique_id=1963026282]
+color = Color(0.047058824, 0.047058824, 0.078431375, 1)
+script = ExtResource("1_jc7hy")

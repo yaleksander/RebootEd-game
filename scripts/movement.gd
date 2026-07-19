@@ -10,11 +10,14 @@ var _using_player_a = true
 var _loop_active = false
 var is_pushing = false
 
+<<<<<<< HEAD:scripts/movement.gd
 @export_range(0, 1, 0.05) var volume: float
+=======
+>>>>>>> 3e8534191967c78dc31519c8c47cfd26f282361b:scenes/movement.gd
 @export var speed = 100
 @export var push_speed = 25
 @export var _map : TileMapLayer
-@export var crossfade_time = 0.05  # segundos de sobreposição
+@export var crossfade_time = 0.05
 
 @onready var _animated_sprite = $PlayerAnimatedSprite
 @onready var _audio_player = $PlayerWalkSound
@@ -26,11 +29,19 @@ var is_pushing = false
 @onready var _interact_left = $Interact/left
 @onready var _interact_right = $Interact/right
 @onready var _interact_up = $Interact/up
+@onready var flashlight = $LanternaPivot/PointLight2D
 
 func _ready():
+<<<<<<< HEAD:scripts/movement.gd
 	_audio_player.volume_linear = volume
 	_loop_player_a.volume_linear = volume
 	_loop_player_b.volume_linear = volume
+=======
+	_audio_player.volume_db = -4
+	_loop_player_a.volume_db = -4
+	_loop_player_b.volume_db = -4
+	
+>>>>>>> 3e8534191967c78dc31519c8c47cfd26f282361b:scenes/movement.gd
 	_audio_player.finished.connect(func(): _start_loop())
 	_loop_timer.one_shot = true
 	_loop_timer.timeout.connect(_on_loop_timer_timeout)
@@ -57,6 +68,9 @@ func animate(v):
 		_animated_sprite.stop()
 
 func get_map_data():
+	if not _map:
+		return
+		
 	if (_map.get_cell_tile_data(_map.local_to_map(position)).get_custom_data("dirt")):
 		velocity /= 2.0
 
@@ -140,8 +154,18 @@ func check_action():
 			body.player_interact()
 
 func _physics_process(_delta):
-	var v = await get_input()
+	var v = get_input()
 	get_map_data()
 	move_and_slide()
 	animate(v)
 	walk_sound()
+	
+	if flashlight:
+		flashlight.position = Vector2.ZERO
+		
+		var angle = global_position.angle_to_point(get_global_mouse_position())
+		flashlight.rotation = angle
+		
+		if flashlight.texture:
+			var texture_width = flashlight.texture.get_size().x
+			flashlight.offset = Vector2(texture_width / 2.0, 0)

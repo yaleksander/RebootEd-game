@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://clptmwbbvqqxi"]
 
 [ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scripts/mirror.gd" id="1_652kc"]
@@ -51,3 +52,29 @@ shape = SubResource("RectangleShape2D_be35d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorArea2D" unique_id=404072350]
 shape = SubResource("RectangleShape2D_hsfv8")
+=======
+[gd_scene format=3 uid="uid://ch53882q585t7"]
+
+[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="1_5o7h0"]
+[ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scenes/mirror.gd" id="1_652kc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up3c4"]
+size = Vector2(146, 140)
+
+[node name="mirror" type="StaticBody2D" unique_id=2067683794]
+scale = Vector2(0.22565062, 0.23990774)
+script = ExtResource("1_652kc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499225062]
+texture = ExtResource("1_5o7h0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=68821847]
+position = Vector2(-4, 4)
+shape = SubResource("RectangleShape2D_up3c4")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1897184073]
+scale = Vector2(0.7917444, 0.41836736)
+target_position = Vector2(2000, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2073721272]
+>>>>>>> 3e8534191967c78dc31519c8c47cfd26f282361b

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c371naxtyu0gr"]
+
+[ext_resource type="Script" uid="uid://cbsq0dk05sn75" path="res://laser_emitter.gd" id="1_fmkpm"]
+[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="2_6fowk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kf40"]
+size = Vector2(145, 139)
+
+[node name="laser_emitter" type="StaticBody2D" unique_id=953624140]
+rotation = 1.5707964
+script = ExtResource("1_fmkpm")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1121622291]
+width = 4.0
+default_color = Color(0.43729392, 1, 0.90799826, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=373374199]
+texture = ExtResource("2_6fowk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=479425097]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_2kf40")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1321743216]
+target_position = Vector2(2000, 0)
