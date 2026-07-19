@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://wmo4n6t2h1e"]
 
 [ext_resource type="Texture2D" uid="uid://bynvd7ll8yp8g" path="res://tilesets/sewers.png" id="1_cmunl"]
+[ext_resource type="Script" uid="uid://davlr3jpctqbl" path="res://scripts/first_scene.gd" id="1_hsfv8"]
 [ext_resource type="Script" uid="uid://d0tlc6nxl7wro" path="res://scripts/movement.gd" id="1_j4aoe"]
 [ext_resource type="Texture2D" uid="uid://cv47oi5a24ee4" path="res://sprites/lucas.png" id="1_mgu5x"]
-[ext_resource type="Texture2D" uid="uid://c2myquvf5n2u" path="res://icon.svg" id="4_d3xhb"]
-[ext_resource type="Script" uid="uid://b73w1pbibdaps" path="res://scripts/move_box.gd" id="4_h1gsm"]
 [ext_resource type="Script" uid="uid://dtmu8pwgm5neb" path="res://scripts/mirror.gd" id="4_hsfv8"]
 [ext_resource type="Texture2D" uid="uid://b1wqfwejtbm4y" path="res://sprites/template.png" id="5_opxuv"]
+[ext_resource type="PackedScene" uid="uid://cow8bv4h27hnt" path="res://scenes/box.tscn" id="9_dlkmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsfv8"]
 texture = ExtResource("1_cmunl")
@@ -296,9 +296,6 @@ texture = SubResource("CompressedTexture2D_66tf5")
 [sub_resource type="TileSet" id="TileSet_j4aoe"]
 sources/0 = SubResource("TileSetAtlasSource_d3xhb")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v04fd"]
-size = Vector2(16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1plfn"]
 atlas = ExtResource("5_opxuv")
 region = Rect2(0, 0, 32, 32)
@@ -483,6 +480,7 @@ size = Vector2(4, 14)
 size = Vector2(16, 4)
 
 [node name="Node2D" type="Node2D" unique_id=726586639]
+script = ExtResource("1_hsfv8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=833903232]
 zoom = Vector2(3, 3)
@@ -493,18 +491,6 @@ tile_set = SubResource("TileSet_cmunl")
 
 [node name="TileMapObjects" type="TileMapLayer" parent="." unique_id=1501824390]
 tile_set = SubResource("TileSet_j4aoe")
-
-[node name="Box" type="CharacterBody2D" parent="." unique_id=1820329819]
-position = Vector2(24, 8)
-script = ExtResource("4_h1gsm")
-
-[node name="BoxSprite" type="Sprite2D" parent="Box" unique_id=887767436]
-position = Vector2(3.8146973e-06, 4.7683716e-07)
-scale = Vector2(0.12499999, 0.12499999)
-texture = ExtResource("4_d3xhb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1750571024]
-shape = SubResource("RectangleShape2D_v04fd")
 
 [node name="Mirror" type="CharacterBody2D" parent="." unique_id=115392072]
 script = ExtResource("4_hsfv8")
@@ -562,3 +548,7 @@ shape = SubResource("RectangleShape2D_v0hlq")
 [node name="LoopPlayerA" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=768570313]
 
 [node name="LoopPlayerB" type="AudioStreamPlayer" parent="Player/PlayerWalkSound" unique_id=390415214]
+
+[node name="Box" parent="." unique_id=1259907060 instance=ExtResource("9_dlkmh")]
+
+[node name="PlayerAmbience" type="AudioStreamPlayer" parent="." unique_id=775738875]

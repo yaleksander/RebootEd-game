@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="RebootEd"
+run/main_scene="uid://bb02g003kw1j6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
