@@ -28,6 +28,11 @@ var is_pushing = false
 @onready var _interact_up = $Interact/up
 
 func _ready():
+	# set dos volumes
+	_audio_player.volume_db = -4
+	_loop_player_a.volume_db = -4
+	_loop_player_b.volume_db = -4
+	
 	_audio_player.finished.connect(func(): _start_loop())
 	_loop_timer.one_shot = true
 	_loop_timer.timeout.connect(_on_loop_timer_timeout)
